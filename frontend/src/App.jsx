@@ -1,5 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 
+const API = "https://forgeshield-ai-817820730147.us-central1.run.app";
+
 /* ─── helpers ──────────────────────────────── */
 function formatBytes(bytes) {
   if (!bytes) return '0 B';
@@ -110,7 +112,7 @@ export default function App() {
     try {
       const form = new FormData();
       form.append('file', file);
-      const res = await fetch('/api/analyze', {
+      const res = await fetch(`${API}/api/analyze`, {
         method: 'POST',
         body: form,
       });
